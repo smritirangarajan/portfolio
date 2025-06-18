@@ -95,3 +95,35 @@ body {
     font-size: 50px;
     font-weight: 700;
 }
+
+.about {
+    background-color: #f5f5f9; /* matches body bg */
+    padding: 30px 20px;
+    text-align: center;
+  }
+
+  .about-title {
+    color: #1d539f;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .about-container {
+    max-width: 900px;
+    margin: 0 auto;
+    font-size: 18px;
+    color: #333;
+    font-family: "Roboto", sans-serif;
+    line-height: 1.6;
+  }
+  
+  .about-container a {
+    color: #1d539f;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  
+  .about-container a:hover {
+    text-decoration: underline;
+  }
