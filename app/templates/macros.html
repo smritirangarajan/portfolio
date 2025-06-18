@@ -1,0 +1,7 @@
+{% macro card(img, header, subtitle) %}
+  <div class="card">
+    <img src="{{ url_for('static', filename=img) }}" alt="{{ header }}">
+    <h3>{{ header }}</h3>
+    <p>{{ subtitle }}</p>
+  </div>
+{% endmacro %}
