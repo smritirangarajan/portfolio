@@ -1,48 +1,75 @@
+/* ---- global body colour for card-based pages ---- */
 body {
-    background-color: #001F3F;
+    background-color: #1d539f;   /* same blue as navbar/banner */
     font-family: 'Roboto', sans-serif;
     margin: 0;
-    padding: 0;
   }
   
+  /* ---- container fits centrally ---- */
   .container {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 0 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
   }
   
+  /* ---- grid with 2 cards per row ---- */
+  .card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  /* ---- individual card ---- */
   .card {
     background-color: #ffffff;
     border-radius: 20px;
     padding: 30px;
-    margin-bottom: 30px;
-    text-align: center;
+    width: 400px; /* fixed width so they wrap 2 per row */
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    margin: 10px;
+    text-align: center;
   }
-  
-  .card img {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 20px;
-  }
-  
-  .card h3 {
-    margin: 0;
-    color: #003366;
-    font-size: 24px;
-  }
-  
-  .card p {
-    font-size: 18px;
-    color: #666;
-  }
+  .card:hover { transform: translateY(-6px); }
 
+  * {
+    box-sizing: border-box;
+  }
+  
+  
+  /* square image */
+  .card img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;         /* don't crop logos */
+    border-radius: 12px;
+    margin-bottom: 18px;
+  }
+  
+  .card h3 { margin: 0 0 8px; font-size: 24px; color: #1d539f; }
+  .card p  { margin: 0 0 18px; font-size: 16px; color: #555; }
+  
+  /* bullet list inside card */
+  .card ul {
+    text-align: left;
+    padding-left: 22px;
+    margin: 0;
+    color: #333;
+    font-size: 15px;
+  }
+  .card ul li { margin-bottom: 6px; }
+  
+  /* section heading */
   .section-title {
     color: #ffffff;
     text-align: center;
     font-size: 2.3rem;
-    margin: 2rem 0;
+    margin-bottom: 30px;
   }
-  
+
+  .description-list {
+    text-align: left;
+    padding-left: 20px;
+    margin-top: 20px;
+  }
+ 

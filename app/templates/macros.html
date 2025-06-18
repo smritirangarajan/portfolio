@@ -1,7 +1,14 @@
-{% macro card(img, header, subtitle) %}
+{% macro card(img, header, subtitle, description=[]) %}
   <div class="card">
     <img src="{{ url_for('static', filename=img) }}" alt="{{ header }}">
     <h3>{{ header }}</h3>
     <p>{{ subtitle }}</p>
+    {% if description %}
+      <ul class="description-list">
+        {% for bullet in description %}
+          <li>{{ bullet }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
   </div>
 {% endmacro %}
