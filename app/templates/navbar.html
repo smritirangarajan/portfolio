@@ -1,0 +1,19 @@
+<header class="nav-bar">
+    <div class="nav-content">
+      <!-- logo -->
+      <a class="logo-touch-target" href="{{ url_for('index') }}">
+        <div class="nav-logo">
+          <img src="{{ url_for('static', filename='img/logo.svg') }}" alt="Logo">
+        </div>
+      </a>
+  
+      <!-- links -->
+      <nav class="nav-links">
+        <a href="{{ url_for('work_page') }}">Work</a>
+        <a href="{{ url_for('education_page') }}">Education</a>
+        <a href="{{ url_for('hobbies_page') }}">Hobbies</a>
+        <a href="{{ url_for('map_page') }}">Map</a>
+      </nav>
+    </div>
+  </header>
+  

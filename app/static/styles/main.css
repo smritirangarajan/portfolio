@@ -20,10 +20,17 @@ body {
     padding-top: 10px;
 }
 
+.nav-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+}
+
 .nav-content .logo-touch-target {
-    display: inline-flex;
-    height: 60%;
-    width: 350px;
+    display: flex;
+    align-items: center;
+    height: 60px;
 }
 
 .nav-content .nav-logo {
@@ -38,7 +45,8 @@ body {
 }
 
 .nav-logo img {
-    width: 200px;
+    height: 50px;
+    width: auto;
 }
 
 .nav-content nav {
@@ -48,6 +56,15 @@ body {
     padding-top: 0px;
     padding-right: 0px;
 }
+
+.nav-links a {
+    color: #ffffff;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 24px;
+    transition: opacity 0.2s ease;
+  }
+  .nav-links a:hover { opacity: 0.8; }
 
 .profile {
     background-color: #1d539f !important;
