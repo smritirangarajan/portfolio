@@ -1,1 +1,18 @@
+{% extends "base.html" %}
+{% from "macros.html" import card %}
 
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/card.css') }}">
+{% endblock %}
+
+{% block content %}
+  <div class="container">
+    <h1 class="section-title">Work Experience</h1>
+        <div class="card-grid">
+            {% for job in work_experiences %}
+              {{ card(job.img, job.header, job.subtitle, job.description) }}
+            {% endfor %}
+        </div>
+  </div>
+{% endblock %}
