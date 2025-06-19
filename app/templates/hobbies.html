@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% from "macros.html" import card %}
+
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles/card.css') }}">
+{% endblock %}
+
+{% block content %}
+  <div class="container hobbies-page">
+    <h1 class="section-title">Hobbies</h1>
+    <div class="card-grid">
+      {% for hobby in hobbies %}
+        {{ card(hobby.img, hobby.header, hobby.subtitle, hobby.description) }}
+      {% endfor %}
+    </div>
+  </div>
+{% endblock %}
