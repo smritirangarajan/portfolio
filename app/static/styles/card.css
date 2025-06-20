@@ -21,6 +21,13 @@ body {
   }
   
   /* ---- individual card ---- */
+  .hobbies-page .card img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
   .card {
     background-color: #ffffff;
     border-radius: 20px;
