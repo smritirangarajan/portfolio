@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Smriti's Timeline</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      color: #1a56b3;
+      margin-top: 2rem;
+    }
+
+    form {
+      background: white;
+      max-width: 500px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      border: 2px solid #1a56b3;
+      border-radius: 8px;
+    }
+
+    input, textarea {
+      width: 100%;
+      margin-bottom: 1rem;
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-family: inherit;
+    }
+
+    button {
+      background: #1a56b3;
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 4px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    #posts {
+      max-width: 600px;
+      margin: 2rem auto;
+    }
+
+    .post {
+      background: white;
+      border-left: 5px solid #1a56b3;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      border-radius: 6px;
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+
+    .gravatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+    }
+
+    .post-content {
+      flex: 1;
+    }
+
+    .post-content strong {
+      color: #1a56b3;
+    }
+
+    .post-content small {
+      display: block;
+      color: gray;
+      margin-top: 0.25rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Smriti's Timeline</h1>
+
+  <form id="timeline-form">
+    <input type="text" name="name" placeholder="Your name" required />
+    <input type="email" name="email" placeholder="Your email" required />
+    <textarea name="content" placeholder="What's on your mind?" required></textarea>
+    <button type="submit">Post</button>
+  </form>
+
+  <div id="posts"></div>
+
+  <script>
+    function getGravatarUrl(email) {
+      const hash = CryptoJS.MD5(email.trim().toLowerCase());
+      return `https://www.gravatar.com/avatar/${hash}?s=80&d=identicon`;
+    }
+
+    function renderPost(post) {
+      const div = document.createElement('div');
+      div.className = 'post';
+
+      const img = document.createElement('img');
+      img.className = 'gravatar';
+      img.src = getGravatarUrl(post.email);
+
+      const content = document.createElement('div');
+      content.className = 'post-content';
+      content.innerHTML = `
+        <strong>${post.name}</strong><br>
+        ${post.content}<br>
+        <small>${new Date(post.created_at).toLocaleString()}</small>
+      `;
+
+      div.appendChild(img);
+      div.appendChild(content);
+      return div;
+    }
+
+    async function loadPosts() {
+      const res = await fetch('/api/timeline_post');
+      const data = await res.json();
+      const postsDiv = document.getElementById('posts');
+      postsDiv.innerHTML = '';
+      data.timeline_posts.forEach(post => {
+        postsDiv.appendChild(renderPost(post));
+      });
+    }
+
+    document.getElementById('timeline-form').addEventListener('submit', async e => {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+      const res = await fetch('/api/timeline_post', {
+        method: 'POST',
+        body: formData
+      });
+      const newPost = await res.json();
+      const postsDiv = document.getElementById('posts');
+      postsDiv.prepend(renderPost(newPost));
+      form.reset();
+    });
+
+    window.addEventListener('DOMContentLoaded', loadPosts);
+  </script>
+
+</body>
+</html>
