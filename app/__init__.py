@@ -98,4 +98,8 @@ def delete_timeline_post(id):
         return {"deleted": id}
     except TimelinePost.DoesNotExist:
         return {"error": f"Post with ID {id} does not exist"}, 404
+    
+@app.route('/timeline')
+def timeline():
+    return render_template('timeline.html', title='Timeline')
 
