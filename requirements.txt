@@ -9,4 +9,6 @@ peewee==3.14.10
 pycparser==2.21
 PyMySQL==1.0.2
 python-dotenv==0.17.1
+setuptools==80.9.0
 Werkzeug==2.0.1
+wheel==0.45.1
