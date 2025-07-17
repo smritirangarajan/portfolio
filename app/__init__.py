@@ -5,8 +5,6 @@ from peewee import *
 import datetime
 from playhouse.shortcuts import model_to_dict
 
-
-
 # Import page data
 from app.data.work_experiences import work_experiences
 from app.data.education import educations
