@@ -82,7 +82,15 @@ def test_post():
 # ---------- Timeline Post ----------
 @app.route('/api/timeline_post', methods=['POST'])
 def post_time_line_post():
-    print("✅ Flask received a POST request!")  # 👈 Add this
+    if not request.form.get('name') or not request.form.get('email') or not request.form.get('content'):
+        return {"error": "Missing required fields"}, 400
+    
+    if not request.form['name'].strip() or not request.form['email'].strip() or not request.form['content'].strip():
+        return {"error": "Fields cannot be empty"}, 400
+    
+    if '@' not in request.form['email'] or '.' not in request.form['email']:
+        return {"error": "Invalid email format"}, 400
+    
     name=request.form['name']
     email=request.form['email']
     content=request.form['content']
