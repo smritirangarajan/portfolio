@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Navigate to your project directory
-cd ~/your-project-folder-name || exit
+cd portfolio || exit
 
 # Pull latest changes from GitHub main branch
 git fetch && git reset origin/main --hard
