@@ -1,14 +1,14 @@
 #!/bin/bash
 
-# Step 1: Go to project folder
-cd ~/portfolio || exit
+# Navigate to your project directory
+cd ~/your-project-folder-name || exit
 
-# Step 2: Pull latest code from GitHub
+# Pull latest changes from GitHub main branch
 git fetch && git reset origin/main --hard
 
-# Step 3: Activate virtual environment and install dependencies
-source python3-virtualenv/bin/activate
-pip install -r requirements.txt
+# Stop and remove old containers
+docker compose -f docker-compose.prod.yml down
 
-# Step 4: Restart systemd service
-sudo systemctl restart myportfolio
+# Rebuild and start new containers
+docker compose -f docker-compose.prod.yml up -d --build
+
