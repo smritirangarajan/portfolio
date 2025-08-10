@@ -2,40 +2,72 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta property="og:title" content="Personal Portfolio">
-    <meta property="og:description" content="My Personal Portfolio">
-    <meta property="og:url" content="{{ url }}">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-
-    <link lang='sass' rel="stylesheet" href="./static/styles/main.css">
-    <link rel='icon' href='./static/img/favicon.ico' type='image/x-icon' />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ title }}</title>
+    <link rel="stylesheet" href="./static/styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
     {% include "navbar.html" %}
 
-    <div class="profile">
-        <div id="profile-picture" class="profile-picture">
-            <img src="./static/img/smriti-profile.jpg">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="profile-card">
+            <div class="circle-pic"></div>
+            <p class="greeting">HEY! I'M</p>
+            <h1>Smriti Rangarajan</h1>
+            <div class="dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
         </div>
-        <h1>{{ title }}</h1>
-    </div>
-    <section class="about">
-        <h2 class="about-title">About Me</h2>
-        <div class="about-container">
-          <p>
-            Hey! I'm Smriti, a student at UC Berkeley studying Data Science and Computer Science. At Berkeley, I'm involved in the Mock Trial Team as an attorney and a member of Women in Computing and Data Science. I'm part of the META and MLH Summer Production Engineering Fellowship, where I'm deepening my skills in systems and infrastructure. I’m passionate about building robust, real-world tech solutions that create social impact. Currently, I’m working as a Data Science Intern at a non-profit organization, where I’m using data to drive meaningful decision-making. Previously, I interned at a Y Combinator startup and supported early-stage founders at the Berkeley SkyDeck Accelerator. In my free time, I enjoy gardening, playing piano, and finding creative ways to blend technology with everyday life. Feel free to connect with me
-            <a href="https://www.linkedin.com/in/smriti-rangarajan/" target="_blank">here</a>.
-          </p>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="about-wrapper">
+        <h2>About Me</h2>
+        <div class="about-card">
+            <div class="profile-img-placeholder"></div>
+            <p class="about-text">
+                Hi! I'm Smriti, a student at UC Berkeley studying Data Science and Computer Science. At Berkeley, I'm involved in the Mock Trial Team as an attorney and a member of Women in Computing and Data Science. I'm part of the META and MLH Summer Production Engineering Fellowship, where I'm deepening my skills in systems and infrastructure. I’m passionate about building robust, real-world tech solutions that create social impact. Currently, I’m working as a Data Science Intern at a non-profit organization, where I’m using data to drive meaningful decision-making. Previously, I interned at a Y Combinator startup and supported early-stage founders at the Berkeley SkyDeck Accelerator. In my free time, I enjoy gardening, playing piano, and finding creative ways to blend technology with everyday life.
+            </p>
         </div>
-      </section>
+    </section>
+
+    <!-- Github Activity -->
+    <section class="github-section">
+        <h2>My Github Activity</h2>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills-wrapper">
+        <h2>Languages/Frameworks</h2>
+        <div class="skills-card">
+            <input type="text" class="search-box" placeholder="search for a skill to see if I have used it">
+            <div class="skills-content">
+                <ul class="categories">
+                    <li>Data Analysis</li>
+                    <li>Fullstack Development</li>
+                    <li>Design</li>
+                    <li>Production Engineering</li>
+                    <li>Databases</li>
+                    <li>Programming Languages</li>
+                    <li>Soft Skills</li>
+                </ul>
+                <div class="skill-details">
+                    <!-- Add matching skill info dynamically -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-dots">
+        <span class="circle-icon"></span>
+        <span class="circle-icon"></span>
+    </footer>
 </body>
 </html>
