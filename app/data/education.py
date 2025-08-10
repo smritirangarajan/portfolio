@@ -2,7 +2,7 @@ educations = [
     {
         "img": "img/berkeley.jpg",
         "header": "UC Berkeley",
-        "subtitle": "Major: CS & DS  •  GPA 4.0",
+        "subtitle": "Major: Computer Science & Data Science  •  GPA 4.0",
         "description": [
             "Activities: Cal Mock Trial, Women in Computing & Data Science, Goldman Sachs Leadership Summit",
             "Coursework: SICP (CS 61A), Data Science Principles, Multivariable Calculus, Linear Algebra"
